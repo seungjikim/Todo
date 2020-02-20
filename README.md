@@ -1,4 +1,4 @@
-# Weather Alami
+# Weather Alarmi
 This App provides weather information with React native
 It has variant screens with weather Icons and titles.
 I used open weather API(https://openweathermap.org/) with location informations
