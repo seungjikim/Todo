@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Alert} from 'react-native';
+import { StyleSheet, Text, View, Alert } from 'react-native';
 import Loading from "./Loading";
 import * as Location from 'expo-location';
 import axios from "axios";
