@@ -1,14 +1,24 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-export default Loading() {
+export default function Loading() {
   return (
-    <View style={styles.container}><Text>Getting the weather</Text></View>
-
+    <View style={styles.container}>
+      <Text style={styles.text}>Getting the weather</Text>
+      </View>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    justifyContent: "flex-end",
+    paddingHorizontal: 30,
+    paddingVertical: 100,
+    backgroundColor: "#FAED7D"
+  },
+  text: {
+    color: "#2c2c2c",
+    fontSize: 30,
   }
-})
+});
