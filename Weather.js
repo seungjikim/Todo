@@ -7,27 +7,27 @@ import { LinearGradient } from "expo-linear-gradient";
 const weatherOptions = {
   Thunderstorm: {
     iconName: "weather-lightning",
-    gradient: ["#373B44", "#4286f4"],
-    title: "Thunderstorm in the house",
-    subtitle: "Actually, outside of the house"
+    gradient: ["#544a7d", "#ffd452"],
+    title: "Thunderstorm",
+    subtitle: "Don't be too scared"
   },
   Drizzle: {
     iconName: "weather-hail",
-    gradient: ["#89F7FE", "#66A6FF"],
+    gradient: ["#1f4037", "#99f2c8"],
     title: "Drizzle",
-    subtitle: "Is like rain, but gay 🏳️‍🌈"
+    subtitle: "Annoying day"
   },
   Rain: {
     iconName: "weather-rainy",
-    gradient: ["#00C6FB", "#005BEA"],
-    title: "Raining like a MF",
-    subtitle: "For more info look outside"
+    gradient: ["#7f7fd5", "#86a8e7", "#91eae4"],
+    title: "Raining",
+    subtitle: "I hate Raining"
   },
   Snow: {
     iconName: "weather-snowy",
-    gradient: ["#7DE2FC", "#B9B6E5"],
-    title: "Cold as balls",
-    subtitle: "Do you want to build a snowman? Fuck no."
+    gradient: ["#005aa7", "#fffde4"],
+    title: "Let's make a snow ball",
+    subtitle: "Do you wanna build a snowman?"
   },
   Atmosphere: {
     iconName: "weather-hail",
@@ -35,27 +35,27 @@ const weatherOptions = {
   },
   Clear: {
     iconName: "weather-sunny",
-    gradient: ["#FF7300", "#FEF253"],
-    title: "Sunny as fuck",
-    subtitle: "Go get your ass burnt"
+    gradient: ["#d3959b", "#bfe6ba"],
+    title: "I love sunny days",
+    subtitle: "Let's hang out!"
   },
   Clouds: {
     iconName: "weather-cloudy",
     gradient: ["#D7D2CC", "#304352"],
     title: "Clouds",
-    subtitle: "I know, fucking boring"
+    subtitle: "awww...Nothing special"
   },
   Mist: {
     iconName: "weather-hail",
     gradient: ["#4DA0B0", "#D39D38"],
     title: "Mist!",
-    subtitle: "It's like you have no glasses on."
+    subtitle: "Nooo!"
   },
   Dust: {
     iconName: "weather-hail",
-    gradient: ["#4DA0B0", "#D39D38"],
-    title: "Dusty",
-    subtitle: "Thanks a lot China 🖕🏻"
+    gradient: ["#636363", "#a2ab58"],
+    title: "Dusty! Keep your Mask",
+    subtitle: "Keep your Mask, hanging outside"
   },
   Haze: {
     iconName: "weather-hail",
@@ -66,19 +66,26 @@ const weatherOptions = {
 };
 
 export default function Weather({temp, condition}) {
-  return (
+    return (
     <LinearGradient
-      colors={["#4c669f", "#3b5998", "#192f6a"]}
+      colors={weatherOptions[condition].gradient}
       style={styles.container}>
       <StatusBar barStyle="light-content"></StatusBar>
       <View style={styles.halfContainer}>
         <MaterialCommunityIcons
          size={100}
-         name={weatherOptions[condition]}
-         color="white" />
+         name={weatherOptions[condition].iconName}
+         color="white"
+         />
         <Text style={styles.temp}>{temp}º</Text>
       </View>
-      <View style={styles.halfContainer}></View>
+      <View style={{...styles.halfTextContainer, ...styles.textContainer}}>
+        <Text style={styles.today}>
+          Today is..
+        </Text>
+        <Text style={styles.title}>{weatherOptions[condition].title}</Text>
+        <Text style={styles.subtitle}>{weatherOptions[condition].subtitle}</Text>
+      </View>
       </LinearGradient>
   );
 }
@@ -107,12 +114,38 @@ const styles = StyleSheet.create({
   },
   temp: {
     fontSize: 40,
-    color="white"
+    color: "white"
   },
 
   halfContainer: {
+    paddingTop: 100,
     flex: 1,
     justifyContent:"center",
-    alignItems: "center"
+    alignItems: "center",
+  },
+  halfTextContainer: {
+    paddingBottom: 100,
+    flex: 1,
+    paddingBottom: 50
+  },
+  title: {
+    color: "white",
+    fontSize: 44,
+    fontWeight: "300",
+    marginBottom: 10
+  },
+  subtitle: {
+    fontWeight: "600",
+    color: "white",
+    marginBottom: 100
+  },
+  today: {
+    color: "white",
+    fontSize: 60,
+    marginBottom: 10,
+  },
+  textContainer: {
+    paddingHorizontal: 20,
+    alignItems: "flex-start"
   }
 })
