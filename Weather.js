@@ -7,8 +7,8 @@ export default function Weather({temp, condition}) {
   return (
     <View style={styles.container}>
       <View style={styles.halfContainer}>
-        <MaterialCommunityIcons size={90} name="weather-ligthning-rain"></MaterialCommunityIcons>
-        <Text>{temp}</Text>
+        <MaterialCommunityIcons size={100} name="weather-lightning-rainy"></MaterialCommunityIcons>
+        <Text style={styles.temp}>{temp}º</Text>
       </View>
       <View style={styles.halfContainer}></View>
     </View>
@@ -37,6 +37,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  temp: {
+    fontSize: 40,
+  },
+
   halfContainer: {
     flex: 1,
     justifyContent:"center",
